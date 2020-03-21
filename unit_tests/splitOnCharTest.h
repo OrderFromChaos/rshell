@@ -2,9 +2,10 @@
 #define __SPLITONCHARTEST_H__
 
 #include "gtest/gtest.h"
+
 #include "../header/splitOnChar.h"
-#include <vector>
-#include <string>
+
+using namespace std;
 
 TEST (splitOnChar, singleSpace) {
 	vector<string> values;

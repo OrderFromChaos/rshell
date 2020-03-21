@@ -2,14 +2,11 @@
 #define _REDIRECT_TESTS
 
 #include "gtest/gtest.h"
+
 #include "../header/rshellclasses.h"
 #include "../header/rshelldefinition.h"
-#include <stack>
-#include <queue>
 #include "../header/shuntingExecute.h"
-#include <iostream>
-#include <string>
-#include <vector>
+
 #include <fstream>
 
 using namespace std;
@@ -37,8 +34,6 @@ TEST (redirectTest, Appending)
 	in.close();
 
 	word.append("cc bc\n");
-
-	cout << word << endl;
 
 	//Store inputs into deque
 	deque<Token*> V;

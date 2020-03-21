@@ -1,9 +1,6 @@
 #ifndef _SHUNTING_TEST_H
 #define _SHUNTING_TEST_H
 
-#include <iostream>
-#include <string>
-#include <vector>
 #include "gtest/gtest.h"
 
 #include "../header/rshellclasses.h"
