@@ -21,7 +21,7 @@ TEST (redirectTest, Appending)
 
 	//Create inputs. 
 	Token* command = new Subcommand({"echo cc bc"});
-	Token* command2 = new Subcommand({"text.txt"});
+	Token* command2 = new Subcommand({file});
 	Token* check = new AppendOutToken({">>"});
 
 	ifstream in;
@@ -29,15 +29,16 @@ TEST (redirectTest, Appending)
 	string word;
 
 	string line;
-	while(!in.eof())
+	while(getline(in, line))
 	{
-		getline(in,line);
-		word.append(" ");
-		word.append(line);	
+		word.append(line);
+		word.append("\n");
 	}
 	in.close();
 
-	word.append("cc bc");
+	word.append("cc bc\n");
+
+	cout << word << endl;
 
 	//Store inputs into deque
 	deque<Token*> V;
@@ -55,15 +56,12 @@ TEST (redirectTest, Appending)
 	string word2;
 
 	string line2;
-	while(!in2.eof())
+	while(getline(in2,line2))
 	{
-		getline(in2,line2);
-		word2.append(" ");
-		word2.append(line2);	
+		word2.append(line2);
+		word2.append("\n");	
 	}
-	word2.pop_back();
 	in2.close();	
-
 
 	EXPECT_EQ(word, word2);
 }
