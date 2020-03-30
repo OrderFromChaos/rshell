@@ -6,8 +6,6 @@
 #include <deque>
 #include <unordered_map>
 
-// TODO: Put this in a namespace.
-
 class RShell {
     public:
 		// Constructors

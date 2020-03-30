@@ -10,8 +10,8 @@ std::string SemiToken::stringify() {
     return "SemiToken: \"" + joinVector(this->content, ' ') + "\""; 
 }
 
-int SemiToken::execute() { 
-    leftChild->execute();
-    this->status = rightChild->execute();
+int SemiToken::execute(std::unordered_map<std::string, int>& statusMap) { 
+    leftChild->execute(statusMap);
+    this->status = rightChild->execute(statusMap);
     return this->status;
 }

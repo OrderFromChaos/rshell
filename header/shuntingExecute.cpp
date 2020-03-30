@@ -36,7 +36,7 @@ int RShell::shuntingExecute(std::deque<Token*> V) {
                 t->rightChild = r;
 
                 t->execute(statusMap);
-                writeStatusMap(statusMap);
+                this->writeStatusMap(statusMap);
 
                 // Clean up storageToken pointers
                 std::vector<Token*> pointers = {l, r, t};
@@ -45,6 +45,17 @@ int RShell::shuntingExecute(std::deque<Token*> V) {
                     if (sptr != nullptr) {
                         delete sptr;
                     }
+                }
+
+                // if statusMap["EXIT_STATUS"] is reached, exit execution
+                if (statusMap["EXIT_STATUS"] == 1) {
+                    // Clean up stack
+                    while (!toExecute.empty()) {
+                        Token* stop = toExecute.top();
+                        toExecute.pop();
+                        delete stop;
+                    }
+                    return t->status;
                 }
 
                 // Need to re-add execution value

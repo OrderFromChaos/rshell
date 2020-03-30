@@ -12,7 +12,7 @@ class ParenthesisToken : public Token {
 		virtual ~ParenthesisToken();
         
         virtual std::string stringify();
-		virtual int execute();
+		virtual int execute(std::unordered_map<std::string, int>&);
 
         // Additional member variable
 		std::deque<Token*> interior;

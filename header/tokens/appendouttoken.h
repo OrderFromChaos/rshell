@@ -9,7 +9,7 @@ class AppendOutToken : public Token {
         virtual ~AppendOutToken() {}
 
 		virtual std::string stringify();
-		virtual int execute();
+		virtual int execute(std::unordered_map<std::string, int>&);
 };
 
 #endif

@@ -11,7 +11,7 @@ std::string TestToken::stringify() {
     return "TestToken: \"" + joinVector(this->content, ' ') + "\""; 
 }
 
-int TestToken::execute() {
+int TestToken::execute(std::unordered_map<std::string, int>& statusMap) {
     this->status = test(this->content, 0);
     return this->status;
 }

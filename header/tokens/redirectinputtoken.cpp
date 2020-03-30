@@ -20,7 +20,7 @@ string RedirectInputToken::stringify() {
     return "RedirectInputToken (<): \"" + joinVector(content, ' ') + "\"";
 }
 
-int RedirectInputToken::execute() {
+int RedirectInputToken::execute(std::unordered_map<std::string, int>& statusMap) {
     const int PATH_MX = 420;
     char** chararr = convertVectorToCharArray(leftChild->content);
     string filename = joinVector(rightChild->content, ' ');

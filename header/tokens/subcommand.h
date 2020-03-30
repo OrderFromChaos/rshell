@@ -9,7 +9,7 @@ class Subcommand : public Token {
         virtual ~Subcommand() {}
         
         virtual std::string stringify();
-        virtual int execute();
+        virtual int execute(std::unordered_map<std::string, int>&);
 };
 
 #endif

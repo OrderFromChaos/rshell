@@ -15,7 +15,7 @@ string EmptyOutToken::stringify() {
     return "EmptyOutToken \"" + joinVector(this->content, ' ') + "\"";
 }
 
-int EmptyOutToken::execute() {
+int EmptyOutToken::execute(std::unordered_map<std::string, int>& statusMap) {
     // Assign the values of the leftChild's content as a completed commmand,
     // Store value into a cstring, and take in the filename from the
     // rightChild's content.

@@ -10,13 +10,17 @@ std::string AndToken::stringify() {
     return "AndToken: \"" + joinVector(this->content, ' ') + '\"';
 }
 
-int AndToken::execute() {
+int AndToken::execute(std::unordered_map<std::string, int>& statusMap) {
     int statusLeft, statusRight = -2;
-    statusLeft = leftChild->execute();
+    statusLeft = leftChild->execute(statusMap);
+
+    if (statusMap["EXIT_STATUS"] == 1) {
+        return 0;
+    }
 
     if (statusLeft == 0) { 
         // "echo a && ..."
-        statusRight = rightChild->execute();
+        statusRight = rightChild->execute(statusMap);
         if (statusRight == 0) {
             // "echo a && echo b"
             this->status = 0;

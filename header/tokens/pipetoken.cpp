@@ -17,7 +17,7 @@ string PipeToken::stringify() {
     return "PipeToken (|): \"" + joinVector(content, ' ') + "\"";
 }
 
-int PipeToken::execute() {
+int PipeToken::execute(std::unordered_map<std::string, int>& statusMap) {
     string leftCommand = joinVector(leftChild->content, ' ');
     string rightCommand = joinVector(rightChild->content, ' ');
 
