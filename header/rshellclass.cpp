@@ -68,6 +68,11 @@ unordered_map<string, int> RShell::prepareStatusMap() {
     return retmap;
 }
 
+void RShell::writeStatusMap(std::unordered_map<std::string, int>& statusMap) {
+    this->DEBUG = statusMap["DEBUG"];
+    this->EXIT_STATUS = statusMap["EXIT_STATUS"];
+}
+
 // Defined in separate files:
 //      deque<Token*> shuntingYardConstruct(string);
 //      int findClose(const string&, int, char); 

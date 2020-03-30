@@ -28,6 +28,7 @@ class RShell {
 		int executeCommandDeque();
 		int shuntingExecute(std::deque<Token*>);
 		std::unordered_map<std::string, int> prepareStatusMap();
+		void writeStatusMap(std::unordered_map<std::string, int>&);
 
 		// Member variables
 		std::deque<Token*> commandDeque;

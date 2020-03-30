@@ -5,9 +5,10 @@
 
 class StorageToken : public Token {
 	public:
-        virtual ~StorageToken() {}
 		StorageToken(int s);
-		virtual int execute();
+		virtual ~StorageToken() {}
+
+		virtual int execute(std::unordered_map<std::string, int>&);
 		virtual std::string stringify();
 };
 

@@ -17,9 +17,13 @@ int RShell::shuntingExecute(std::deque<Token*> V) {
         return 0;
     } else if (V.size() == 1) {
         statusMap = this->prepareStatusMap();
-        return V[0]->execute(statusMap);
+        int retVal = V[0]->execute(statusMap);
+        writeStatusMap(statusMap);
+        return retVal;
     } else {
         for (Token* t : V) {
+            statusMap = this->prepareStatusMap();
+
             if (t->isOperator == false) {
                 toExecute.push(t);
             } else {
@@ -31,7 +35,8 @@ int RShell::shuntingExecute(std::deque<Token*> V) {
                 t->leftChild = l;
                 t->rightChild = r;
 
-                t->execute();
+                t->execute(statusMap);
+                writeStatusMap(statusMap);
 
                 // Clean up storageToken pointers
                 std::vector<Token*> pointers = {l, r, t};
