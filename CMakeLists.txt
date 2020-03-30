@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-ADD_SUBDIRECTORY(googletest)
+# ADD_SUBDIRECTORY(googletest)
 
 SET(CMAKE_CXX_STANDARD 11)
 
@@ -14,13 +14,15 @@ add_definitions(${C11})
 SET(warnings "-Wall")
 add_definitions(${warnings})
 
+# set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
+
 FILE(GLOB MyTokens header/tokens/*.cpp)
 FILE(GLOB MyHeaders header/*.cpp)
 
 ADD_EXECUTABLE(rshell
+    src/rshell.cpp
     header/rshellutils.cpp
     header/rshellclass.cpp
-    src/rshell.cpp
 )
 
 # ADD_EXECUTABLE(sandbox

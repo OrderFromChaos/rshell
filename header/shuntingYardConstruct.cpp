@@ -16,6 +16,8 @@
 // Token files
 #include "tokens/alltokens.h"
 
+using namespace std;
+
 int RShell::findClose(const string& targetString, int start, char targetClose) {
 	// Given this:
 	//              |

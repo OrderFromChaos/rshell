@@ -1,6 +1,9 @@
 #include "../header/rshellclass.h"
 #include "../header/rshellutils.h"
 
+#include <vector>
+#include <string>
+
 using namespace std;
 
 int main(int argc, char *argv[]) {
