@@ -3,7 +3,7 @@
 #include "../executeCharArray.h"
 #include "../rshellclass.h"
 #include "../rshellutils.h"
-#include "test_fxn.cpp"
+#include "test_fxn.h"
 
 using namespace std;
 

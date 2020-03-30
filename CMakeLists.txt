@@ -15,13 +15,12 @@ SET(warnings "-Wall")
 add_definitions(${warnings})
 
 FILE(GLOB MyTokens header/tokens/*.cpp)
+FILE(GLOB MyHeaders header/*.cpp)
 
 ADD_EXECUTABLE(rshell
-    src/rshell.cpp
+    header/rshellutils.cpp
     header/rshellclass.cpp
-    header/shuntingExecute.cpp
-    header/shuntingYardConstruct.cpp
-    ${MyTokens}
+    src/rshell.cpp
 )
 
 # ADD_EXECUTABLE(sandbox

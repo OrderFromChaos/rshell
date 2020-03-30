@@ -1,7 +1,6 @@
 #include "parenthesistoken.h"
 #include "../rshellutils.h"
 #include "../rshellclass.h"
-#include "../shuntingExecute.cpp"
 
 ParenthesisToken::ParenthesisToken(std::deque<Token*> inside) {
     this->interior = inside;

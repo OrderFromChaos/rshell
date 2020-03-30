@@ -1,6 +1,6 @@
 #include "testtoken.h"
 #include "../rshellutils.h"
-#include "test_fxn.cpp"
+#include "test_fxn.h"
 
 TestToken::TestToken(std::vector<std::string> V) {
     this->content = V;
