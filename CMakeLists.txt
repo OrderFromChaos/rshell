@@ -23,6 +23,7 @@ ADD_EXECUTABLE(rshell
     src/rshell.cpp
     header/rshellutils.cpp
     header/rshellclass.cpp
+    header/tokens/token.cpp
 )
 
 # ADD_EXECUTABLE(sandbox
