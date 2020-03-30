@@ -16,9 +16,6 @@
 // Token files
 #include "tokens/alltokens.h"
 
-extern int GLOBAL_EXIT_STATUS;
-extern bool GLOBAL_DEBUG;
-
 int RShell::findClose(const string& targetString, int start, char targetClose) {
 	// Given this:
 	//              |

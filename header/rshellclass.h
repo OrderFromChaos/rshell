@@ -7,11 +7,6 @@
 #include <unordered_map>
 
 // TODO: Put this in a namespace.
-namespace rshellstatus {
-	int GLOBAL_EXIT_STATUS = 0; // When set to 1, stop program execution.
-								// This is used for proper handling of exit().
-	bool GLOBAL_DEBUG = false;
-}
 
 class RShell {
     public:
@@ -32,11 +27,14 @@ class RShell {
 		// Execution
 		int executeCommandDeque();
 		int shuntingExecute(std::deque<Token*>);
+		std::unordered_map<std::string, int> prepareStatusMap();
 
 		// Member variables
 		std::deque<Token*> commandDeque;
 		std::unordered_map <std::string, std::string> configData;
+
 		bool DEBUG = false;
+		bool EXIT_STATUS = false;
 };
 
 #endif

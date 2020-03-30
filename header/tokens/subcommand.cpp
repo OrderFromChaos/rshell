@@ -5,8 +5,7 @@
 #include "../rshellutils.h"
 #include "test_fxn.cpp"
 
-extern int GLOBAL_EXIT_STATUS;
-extern bool GLOBAL_DEBUG;
+using namespace std;
 
 Subcommand::Subcommand(std::vector<std::string> V) {
     this->content = V;
@@ -17,12 +16,12 @@ std::string Subcommand::stringify() {
     return "Subcommand: \"" + joinVector(this->content, ' ') + "\"";
 }
 
-int Subcommand::execute() {
-    if (GLOBAL_EXIT_STATUS == 1) {
+int Subcommand::execute(unordered_map<string, int>& statusMap) {
+    if (statusMap["EXIT_STATUS"] == 1) {
         // Do nothing
         return -2;
     } else if (content[0] == "exit") {
-        GLOBAL_EXIT_STATUS = 1;
+        statusMap["EXIT_STATUS"] = 1;
         this->status = 0;
         return this->status;
     } else if (content[0] == "test") {

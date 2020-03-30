@@ -1,9 +1,6 @@
 #include "../header/rshellclass.h"
 #include "../header/rshellutils.h"
 
-extern int GLOBAL_EXIT_STATUS;
-extern bool GLOBAL_DEBUG;
-
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -15,10 +12,10 @@ int main(int argc, char *argv[]) {
 		string currInput = "";
 		while (currInput != "exit") {
 			cout << "$ ";
-			getline(cin, currInput);	
+			getline(cin, currInput);
 			shellobj.makeCommandDeque(currInput);
 			shellobj.executeCommandDeque();
-			if (GLOBAL_EXIT_STATUS == 1) {
+			if (shellobj.EXIT_STATUS) {
 				break;
 			}
 		}

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 class Token {
     public:
@@ -10,7 +11,7 @@ class Token {
 
         // Polymorphic functions
         virtual ~Token() {}
-        virtual int execute() = 0;
+        virtual int execute(std::unordered_map<std::string, int>&) = 0;
         virtual std::string stringify();
 
         // Member variables

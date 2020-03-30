@@ -3,9 +3,6 @@
 #include "../rshellclass.h"
 #include "../shuntingExecute.cpp"
 
-extern int GLOBAL_EXIT_STATUS;
-extern bool GLOBAL_DEBUG;
-
 ParenthesisToken::ParenthesisToken(std::deque<Token*> inside) {
     this->interior = inside;
     this->isOperator = false;
@@ -34,8 +31,8 @@ std::string ParenthesisToken::stringify() {
     return joinVector(outputV, "\n");
 }
 
-int ParenthesisToken::execute() {
-    RShell temp = RShell(GLOBAL_DEBUG);
+int ParenthesisToken::execute(std::unordered_map<std::string, int>& statusMap) {
+    RShell temp = RShell(statusMap["DEBUG"]);
     this->status = temp.shuntingExecute(interior);
     return status;
 }

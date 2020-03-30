@@ -11,11 +11,13 @@
 
 int RShell::shuntingExecute(std::deque<Token*> V) {
     std::stack<Token*> toExecute;
+    std::unordered_map<std::string, int> statusMap;
 
     if (V.size() == 0) {
         return 0;
     } else if (V.size() == 1) {
-        return V[0]->execute();
+        statusMap = this->prepareStatusMap();
+        return V[0]->execute(statusMap);
     } else {
         for (Token* t : V) {
             if (t->isOperator == false) {

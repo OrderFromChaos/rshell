@@ -1,14 +1,12 @@
 #include "rshellclass.h"
 
-extern int GLOBAL_EXIT_STATUS;
-extern bool GLOBAL_DEBUG;
+using namespace std;
 
 RShell::RShell(bool b) { 
     this->DEBUG = b;
-    GLOBAL_DEBUG = b;
 }
 
-RShell::RShell(std::string filename) {
+RShell::RShell(string filename) {
     // TODO: Import config file a la .rshellrc
 }
 
@@ -24,34 +22,33 @@ void RShell::deconstructDeque() {
     }
 }
 
-void RShell::makeCommandDeque(std::string userInput) {
-    std::deque<Token*> result_deque = shuntingYardConstruct(userInput);
+void RShell::makeCommandDeque(string userInput) {
+    deque<Token*> result_deque = shuntingYardConstruct(userInput);
     this->commandDeque = result_deque;
 
     if (this->DEBUG) {
         // Print out commandDeque
         for (Token* t : this->commandDeque) {
-            std::cout << t->stringify() << std::endl;
+            cout << t->stringify() << endl;
         }
     }
 }
 
 int RShell::executeCommandDeque() {
     if (DEBUG) {
-        std::cout << "EXECUTING:" << std::endl;
-        std::cout << "{" << std::endl;
+        cout << "EXECUTING:" << endl;
+        cout << "{" << endl;
     }
 
     int execute_result = shuntingExecute(this->commandDeque);
 
     if (DEBUG) {
-        std::cout << "}" << std::endl;
-
-        std::cout << "Final execution status:" << std::endl;
+        cout << "}" << endl;
+        cout << "Final execution status:" << endl;
         for (Token* t : this->commandDeque) {
-            std::cout << t->status << " ";
+            cout << t->status << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 
     // Clean up memory
@@ -61,7 +58,17 @@ int RShell::executeCommandDeque() {
     return execute_result;
 }
 
+unordered_map<string, int> RShell::prepareStatusMap() {
+    unordered_map<string, int> retmap;
+    
+    retmap["DEBUG"] = this->DEBUG;
+    retmap["EXIT_STATUS"] = this->EXIT_STATUS;
+    // TODO: Take stuff from configData
+
+    return retmap;
+}
+
 // Defined in separate files:
-//      std::deque<Token*> shuntingYardConstruct(std::string);
-//      int findClose(const std::string&, int, char); 
-//      int shuntingExecute(std::deque<Token*>);
+//      deque<Token*> shuntingYardConstruct(string);
+//      int findClose(const string&, int, char); 
+//      int shuntingExecute(deque<Token*>);
