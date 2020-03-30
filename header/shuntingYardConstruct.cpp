@@ -1,6 +1,3 @@
-#ifndef SHUNTINGYARDCONSTRUCT_H
-#define SHUNTINGYARDCONSTRUCT_H
-
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -12,9 +9,15 @@
 #include <sstream>
 #include <iterator>
 
-#include "rshellclasses.h"
+#include "rshellclass.h"
 #include "rshellutils.h"
 #include "splitOnChar.h"
+
+// Token files
+#include "tokens/alltokens.h"
+
+extern int GLOBAL_EXIT_STATUS;
+extern bool GLOBAL_DEBUG;
 
 int RShell::findClose(const string& targetString, int start, char targetClose) {
 	// Given this:
@@ -437,5 +440,3 @@ deque<Token*> RShell::shuntingYardConstruct(string commandString) {
 	return outputQueue;
 
 }
-
-#endif

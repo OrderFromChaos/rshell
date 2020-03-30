@@ -4,24 +4,22 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 template <class T>
-void printVector(vector<T> V, string delimiter=" ") {
+void printVector(std::vector<T> V, std::string delimiter=" ") {
 	auto it = V.begin();
-	cout << '{';
+	std::cout << '{';
 	while (it != V.end()) {
-		cout << *it << delimiter;
+		std::cout << *it << delimiter;
 		it++;
 	}
-	cout << '}' << endl;
+	std::cout << '}' << std::endl;
 }
 
 template <class T>
-string joinVector(vector<string> V, T joiner) {
-	string concat;
+std::string joinVector(std::vector<std::string> V, T joiner) {
+	std::string concat;
 	bool first = true;
-	for (const string& substr : V) {
+	for (const std::string& substr : V) {
 		if (first) {
 			concat += substr;
 			first = false;
@@ -33,16 +31,10 @@ string joinVector(vector<string> V, T joiner) {
 	return concat;
 }
 
-string joinVector(vector<string> V) {
-	string concat;
-	bool first = true;
-	for (const string& substr : V) {
-		if (first) {
-			concat += substr;
-			first = false;
-		} else {
-			concat += substr;
-		}
+std::string joinVector(std::vector<std::string> V) {
+	std::string concat;
+	for (const std::string& substr : V) {
+		concat += substr;
 	}
 	return concat;
 }

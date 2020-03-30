@@ -1,5 +1,8 @@
-#include "../header/rshellclasses.h"
-#include "../header/rshelldefinition.h"
+#include "../header/rshellclass.h"
+#include "../header/rshellutils.h"
+
+extern int GLOBAL_EXIT_STATUS;
+extern bool GLOBAL_DEBUG;
 
 using namespace std;
 

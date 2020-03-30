@@ -46,7 +46,7 @@ class Token {
 
         // Member variables
         vector<string> content;
-	bool isOperator;
+		bool isOperator;
         Token* leftChild = nullptr;
         Token* rightChild = nullptr;
         int status = -2; // Current exit status of Token.
