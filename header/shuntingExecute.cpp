@@ -1,7 +1,4 @@
-#ifndef SHUNTINGEXECUTE_H
-#define SHUNTINGEXECUTE_H
-
-#include "rshellclass.h"
+#include "rshellclass.h" // Functional originally defined here
 #include "tokens/storagetoken.h"
 
 #include <deque>
@@ -65,5 +62,3 @@ int RShell::shuntingExecute(std::deque<Token*> V) {
         return V[V.size() - 1]->status;
     }
 }
-
-#endif

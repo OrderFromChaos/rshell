@@ -16,14 +16,18 @@ add_definitions(${warnings})
 
 # set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
 
-FILE(GLOB MyTokens header/tokens/*.cpp)
-FILE(GLOB MyHeaders header/*.cpp)
+FILE(GLOB MyTokens header/tokens/*token.h)
+FILE(GLOB MyHeaders header/*.h)
 
 ADD_EXECUTABLE(rshell
     src/rshell.cpp
-    header/rshellutils.cpp
+#     header/rshellutils.cpp
     header/rshellclass.cpp
-    header/tokens/token.cpp
+#     header/tokens/token.cpp
+#     header/rshellutils.cpp
+#     header/rshellutils.h
+#     ${MyHeaders}
+#     ${MyTokens}
 )
 
 # ADD_EXECUTABLE(sandbox
