@@ -21,9 +21,11 @@ FILE(GLOB MyHeaders header/*.cpp)
 
 ADD_EXECUTABLE(rshell
     src/rshell.cpp
-    header/rshellutils.cpp
-    header/rshellclass.cpp
-    header/tokens/token.cpp
+#     header/rshellutils.cpp
+#     header/rshellclass.cpp
+#     header/tokens/token.cpp
+    ${MyHeaders}
+    ${MyTokens}
 )
 
 # ADD_EXECUTABLE(sandbox
